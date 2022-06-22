@@ -12,16 +12,20 @@ namespace webapi.Controllers
 
         IHelloWorldService _helloWorldService;
 
-        public HelloWorldController(IHelloWorldService helloWorldService)
+        private readonly ILogger<HelloWorldController> _logger;
+
+        public HelloWorldController(IHelloWorldService helloWorldService, ILogger<HelloWorldController> logger)
         {
             _helloWorldService = helloWorldService;
+            _logger = logger;
         }
 
 
-        //[HttpGet("Get")]
+        [HttpGet("Get")]
         //[Route("[action]")]
         public IActionResult Get()
         {
+            _logger.LogDebug("Agregando el Logging en API");
             return Ok(_helloWorldService.GetHelloWorld());
         }
 

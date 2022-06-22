@@ -32,10 +32,11 @@ namespace webapi.Controllers
         //[HttpGet("GetWeatherForecast")]
         [HttpGet]
         //[Route("Get/weatherforecast")]
-        [Route("Get/weatherforecast2")]
-        //[Route("[action]")]
+        //[Route("Get/weatherforecast2")]
+        [Route("[action]")]
         public IEnumerable<WeatherForecast> Get()
         {
+            _logger.LogDebug("Retornando la lista de weatherforecast");
             return ListWeatherForecast;
         }
 
